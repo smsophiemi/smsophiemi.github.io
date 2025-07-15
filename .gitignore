@@ -15,3 +15,4 @@ build/
 *.log
 *.lock
 coverage/
+.github/
