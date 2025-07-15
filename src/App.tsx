@@ -4,6 +4,7 @@
 
 import React from "react";
 import downloadFile from "./Common/Download";
+import NavBar from "./NavBar/NavBar";
 
 const resumeURL = "./Resources/FlexProfile - SophieMi.pdf";
 const resumeFileName = "FlexProfile - SophieMi.pdf";
@@ -11,6 +12,7 @@ const resumeFileName = "FlexProfile - SophieMi.pdf";
 function App() {
   return (
     <div>
+      <NavBar />
       <header>
         <h1>My Portfolio</h1>
         <nav>
