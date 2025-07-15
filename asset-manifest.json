@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/smsophiemi-github.io/static/js/main.99e00c85.js",
+    "main.js": "/smsophiemi-github.io/static/js/main.b04f586c.js",
     "index.html": "/smsophiemi-github.io/index.html",
-    "main.99e00c85.js.map": "/smsophiemi-github.io/static/js/main.99e00c85.js.map"
+    "main.b04f586c.js.map": "/smsophiemi-github.io/static/js/main.b04f586c.js.map"
   },
   "entrypoints": [
-    "static/js/main.99e00c85.js"
+    "static/js/main.b04f586c.js"
   ]
 }
