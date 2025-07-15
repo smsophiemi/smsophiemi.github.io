@@ -1,6 +1,10 @@
 // Create a new file named `App.js` and add the following code:
 
 import React from "react";
+import downloadFile from "./Common/Download";
+
+const resumeURL = "./Resources/FlexProfile - SophieMi.pdf";
+const resumeFileName = "FlexProfile - SophieMi.pdf";
 
 function App() {
   return (
@@ -28,6 +32,9 @@ function App() {
             Welcome to my portfolio! I am a passionate developer with experience
             in building web applications.
           </p>
+          <button
+            onClick={() => downloadFile(resumeURL, resumeFileName)}> Download Resume
+            </button>
         </section>
         <section id="projects">
           <h2>Projects</h2>
