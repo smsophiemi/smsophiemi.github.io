@@ -19,6 +19,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      # Set up Git
+      - name: Set up Git
+        run: |
+          git config --global user.name "smsophiemi"
+          git config --global user.email "smsophiemi@gmail.com"
+
       # Merge main into gh-pages
       - name: Merge main into gh-pages
         run: |
