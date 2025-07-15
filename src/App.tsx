@@ -29,7 +29,7 @@ function App() {
         <section id="about">
           <h2>About Me</h2>
           <p>
-            Welcome to my portfolio! I am a passionate developer with experience
+            Welcome to my online resume! I am a passionate developer with experience
             in building web applications.
           </p>
           <span>adding a image here soon... </span>
