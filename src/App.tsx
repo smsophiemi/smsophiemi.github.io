@@ -1,3 +1,5 @@
+/** @format */
+
 // Create a new file named `App.js` and add the following code:
 
 import React from "react";
@@ -29,16 +31,23 @@ function App() {
         <section id="about">
           <h2>About Me</h2>
           <p>
-            Welcome to my online resume! I am a passionate developer with experience
-            in building web applications.
+            Welcome to my online resume! I am a passionate developer with
+            experience in building web applications.
           </p>
           <span>adding a image here soon... </span>
-          <button
-            onClick={() => downloadFile(resumeURL, resumeFileName)}> Download Resume
+          <button onClick={() => downloadFile(resumeURL, resumeFileName)}>
+            {" "}
+            Download Resume
           </button>
         </section>
         <section id="projects">
           <h2>Projects</h2>
+          <h3>test out material ui </h3>
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          />
+          ∏
           <ul>
             <li>Project 1: Description of project 1</li>
             <li>Project 2: Description of project 2</li>
