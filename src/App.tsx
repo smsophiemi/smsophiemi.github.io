@@ -34,7 +34,7 @@ function App() {
           </p>
           <button
             onClick={() => downloadFile(resumeURL, resumeFileName)}> Download Resume
-            </button>
+          </button>
         </section>
         <section id="projects">
           <h2>Projects</h2>
