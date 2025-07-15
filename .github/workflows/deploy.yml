@@ -1,3 +1,5 @@
+# @format
+
 name: Deploy to GitHub Pages
 
 on:
@@ -8,22 +10,14 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
-      # Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Set up Git
-      - name: Set up Git
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
+      # Add your build steps here (e.g., npm install, npm run build)
 
-      # Merge main into gh-pages
-      - name: Merge main into gh-pages
-        run: |
-          git fetch origin gh-pages
-          git checkout gh-pages || git checkout --orphan gh-pages
-          git merge origin/main --allow-unrelated-histories -m "Merge changes from main into gh-pages"
-          git push origin gh-pages --force
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build # Change if your build output is elsewhere
