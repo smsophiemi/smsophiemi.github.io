@@ -32,6 +32,7 @@ function App() {
             Welcome to my portfolio! I am a passionate developer with experience
             in building web applications.
           </p>
+          <span>adding a image here soon... </span>
           <button
             onClick={() => downloadFile(resumeURL, resumeFileName)}> Download Resume
           </button>
