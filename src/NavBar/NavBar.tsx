@@ -27,30 +27,15 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 }));
 
 /////////////////////////////// CONSTS /////////////////////////////////////////
-// the height of the navbar section
-const NAVHEIGHT = document.getElementById("nav-bar")?.clientHeight || 24;
-const NAVBOTTOM =
-  document.getElementById("nav-bar")?.getBoundingClientRect().bottom || 0;
+const NAVOFFSET = 128;
 
 /////////////////////////////// METHODS /////////////////////////////////////////
 const scrollToSection = (sectionId: string): void => {
-  console.log(`NAVHEIGHT: ${NAVHEIGHT}, NAVBOTTOM: ${NAVBOTTOM}`);
-  console.log(document.getElementById("nav-bar")?.getBoundingClientRect());
   const section = document.getElementById(sectionId);
   if (section) {
-    // section.scrollIntoView({ behavior: "smooth" });
     const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-
-    console.log("section getBoundingClientRect");
-    console.log(section.getBoundingClientRect());
-    console.log(
-      `sectionHeight: ${section.clientHeight}, window.scrollY: ${window.scrollY}`
-    );
-    console.log(
-      `scrolling to section: ${sectionId}, top: ${sectionTop}, navHeight: ${NAVHEIGHT}`
-    );
     window.scrollTo({
-      top: sectionTop - 128,
+      top: sectionTop - NAVOFFSET,
       behavior: "smooth",
     });
   }
