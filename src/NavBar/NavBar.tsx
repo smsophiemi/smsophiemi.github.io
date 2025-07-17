@@ -29,67 +29,77 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 /////////////////////////////// CONSTS /////////////////////////////////////////
 // the height of the navbar section
 const NAVHEIGHT = document.getElementById("nav-bar")?.clientHeight || 24;
+const NAVBOTTOM =
+  document.getElementById("nav-bar")?.getBoundingClientRect().bottom || 0;
 
 /////////////////////////////// METHODS /////////////////////////////////////////
-const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      // section.scrollIntoView({ behavior: "smooth" });
-      const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-      window.scrollTo({
-        top: sectionTop - NAVHEIGHT,
-        behavior: "smooth",
-      });
-    }
-  };
+const scrollToSection = (sectionId: string): void => {
+  console.log(`NAVHEIGHT: ${NAVHEIGHT}, NAVBOTTOM: ${NAVBOTTOM}`);
+  console.log(document.getElementById("nav-bar")?.getBoundingClientRect());
+  const section = document.getElementById(sectionId);
+  if (section) {
+    // section.scrollIntoView({ behavior: "smooth" });
+    const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+
+    console.log("section getBoundingClientRect");
+    console.log(section.getBoundingClientRect());
+    console.log(
+      `sectionHeight: ${section.clientHeight}, window.scrollY: ${window.scrollY}`
+    );
+    console.log(
+      `scrolling to section: ${sectionId}, top: ${sectionTop}, navHeight: ${NAVHEIGHT}`
+    );
+    window.scrollTo({
+      top: sectionTop - 128,
+      behavior: "smooth",
+    });
+  }
+};
 
 /////////////////////////////// COMPONENT /////////////////////////////////////////
 const NavBar = (): JSX.Element => {
   return (
-    <div>
-      <section id="nav-bar">
-        <AppBar
-          position="fixed"
-          enableColorOnDark
-          sx={{
-            boxShadow: 0,
-            bgcolor: "transparent",
-            backgroundImage: "none",
-            mt: "calc(var(--template-frame-height, 0px) + 28px)",
-          }}
-        >
-          <Container maxWidth="lg">
-            <StyledToolbar variant="regular" disableGutters>
-              <Box
-                sx={{
-                  flexGrow: 1,
-                  display: "flex",
-                  alignItems: "center",
-                  px: 0,
-                }}
-              >
-                <Button
-                  variant="text"
-                  color="info"
-                  size="small"
-                  onClick={() => scrollToSection("about-me")}
-                >
-                  About Me
-                </Button>
-                <Button
-                  variant="text"
-                  color="info"
-                  size="small"
-                  onClick={() => scrollToSection("projects")}
-                >
-                  Projects
-                </Button>
-              </Box>
-            </StyledToolbar>
-          </Container>
-        </AppBar>
-      </section>
-    </div>
+    <AppBar
+      id="nav-bar"
+      position="fixed"
+      enableColorOnDark
+      sx={{
+        boxShadow: 0,
+        bgcolor: "transparent",
+        backgroundImage: "none",
+        mt: "calc(var(--template-frame-height, 0px) + 28px)",
+      }}
+    >
+      <Container maxWidth="lg">
+        <StyledToolbar variant="regular" disableGutters>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: "flex",
+              alignItems: "center",
+              px: 0,
+            }}
+          >
+            <Button
+              variant="text"
+              color="info"
+              size="small"
+              onClick={() => scrollToSection("about-me")}
+            >
+              About Me
+            </Button>
+            <Button
+              variant="text"
+              color="info"
+              size="small"
+              onClick={() => scrollToSection("projects")}
+            >
+              Projects
+            </Button>
+          </Box>
+        </StyledToolbar>
+      </Container>
+    </AppBar>
   );
 };
 
