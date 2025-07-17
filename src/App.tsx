@@ -1,8 +1,4 @@
 /** @format */
-
-// Create a new file named `App.js` and add the following code:
-
-import React from "react";
 import NavBar from "./NavBar/NavBar";
 import MainContent from "./MainContent";
 import Container from "@mui/material/Container";
@@ -18,7 +14,9 @@ function App() {
         component="main"
         sx={{ display: "flex", flexDirection: "column", my: 16, gap: 4 }}
       >
+        <MainContent />
         <AboutMe />
+        <MainContent />
         <ProjectsDashboard />
       </Container>
     </div>

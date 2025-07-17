@@ -1,18 +1,12 @@
 /** @format */
 
-import * as React from "react";
 import { alpha, styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
 import Container from "@mui/material/Container";
-import Divider from "@mui/material/Divider";
-import MenuItem from "@mui/material/MenuItem";
-import Drawer from "@mui/material/Drawer";
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+import { JSX } from "react";
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: "flex",
@@ -28,40 +22,71 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
     : alpha(theme.palette.background.default, 0.4),
   boxShadow: (theme.vars || theme).shadows[1],
   padding: "8px 12px",
+  minheight: "24px",
 }));
 
-export default function NavBar() {
-  const [open, setOpen] = React.useState(false);
+// the height of the navbar section
+const NAVHEIGHT = document.getElementById("nav-bar")?.clientHeight || 24;
 
-  const toggleDrawer = (newOpen: boolean) => () => {
-    setOpen(newOpen);
+const NavBar = (): JSX.Element => {
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      // section.scrollIntoView({ behavior: "smooth" });
+      const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: sectionTop - NAVHEIGHT,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
-    <AppBar
-      position="fixed"
-      enableColorOnDark
-      sx={{
-        boxShadow: 0,
-        bgcolor: "transparent",
-        backgroundImage: "none",
-        mt: "calc(var(--template-frame-height, 0px) + 28px)",
-      }}
-    >
-      <Container maxWidth="lg">
-        <StyledToolbar variant="regular" disableGutters>
-          <Box
-            sx={{ flexGrow: 1, display: "flex", alignItems: "center", px: 0 }}
-          >
-            <Button variant="text" color="info" size="small">
-              About Me
-            </Button>
-            <Button variant="text" color="info" size="small">
-              Projects
-            </Button>
-          </Box>
-        </StyledToolbar>
-      </Container>
-    </AppBar>
+    <div>
+      <section id="nav-bar">
+        <AppBar
+          position="fixed"
+          enableColorOnDark
+          sx={{
+            boxShadow: 0,
+            bgcolor: "transparent",
+            backgroundImage: "none",
+            mt: "calc(var(--template-frame-height, 0px) + 28px)",
+          }}
+        >
+          <Container maxWidth="lg">
+            <StyledToolbar variant="regular" disableGutters>
+              <Box
+                sx={{
+                  flexGrow: 1,
+                  display: "flex",
+                  alignItems: "center",
+                  px: 0,
+                }}
+              >
+                <Button
+                  variant="text"
+                  color="info"
+                  size="small"
+                  onClick={() => scrollToSection("about-me")}
+                >
+                  About Me
+                </Button>
+                <Button
+                  variant="text"
+                  color="info"
+                  size="small"
+                  onClick={() => scrollToSection("projects")}
+                >
+                  Projects
+                </Button>
+              </Box>
+            </StyledToolbar>
+          </Container>
+        </AppBar>
+      </section>
+    </div>
   );
-}
+};
+
+export default NavBar;
