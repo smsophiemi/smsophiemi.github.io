@@ -8,6 +8,7 @@ import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import { JSX } from "react";
 
+// todo move styles into scss files
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
@@ -25,11 +26,12 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   minheight: "24px",
 }));
 
+/////////////////////////////// CONSTS /////////////////////////////////////////
 // the height of the navbar section
 const NAVHEIGHT = document.getElementById("nav-bar")?.clientHeight || 24;
 
-const NavBar = (): JSX.Element => {
-  const scrollToSection = (sectionId: string) => {
+/////////////////////////////// METHODS /////////////////////////////////////////
+const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
       // section.scrollIntoView({ behavior: "smooth" });
@@ -41,6 +43,8 @@ const NavBar = (): JSX.Element => {
     }
   };
 
+/////////////////////////////// COMPONENT /////////////////////////////////////////
+const NavBar = (): JSX.Element => {
   return (
     <div>
       <section id="nav-bar">

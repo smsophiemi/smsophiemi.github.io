@@ -3,9 +3,13 @@
 import downloadFile from "../Common/Download";
 import { JSX } from "react";
 
+/////////////////////////////// CONSTS /////////////////////////////////////////
 const resumeURL = "./Resources/FlexProfile - SophieMi.pdf";
 const resumeFileName = "FlexProfile - SophieMi.pdf";
 
+/////////////////////////////// METHODS /////////////////////////////////////////
+
+/////////////////////////////// COMPONENT /////////////////////////////////////////
 const AboutMe = (): JSX.Element => {
   return (
     <div>
