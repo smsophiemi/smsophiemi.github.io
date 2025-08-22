@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/smsophiemi.github.io/static/js/main.277942b2.js",
-    "index.html": "/smsophiemi.github.io/index.html",
-    "main.277942b2.js.map": "/smsophiemi.github.io/static/js/main.277942b2.js.map"
+    "main.js": "/static/js/main.277942b2.js",
+    "index.html": "/index.html",
+    "main.277942b2.js.map": "/static/js/main.277942b2.js.map"
   },
   "entrypoints": [
     "static/js/main.277942b2.js"
