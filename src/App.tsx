@@ -1,24 +1,39 @@
 /** @format */
+import { motion } from "framer-motion";
+import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./NavBar/NavBar";
-import MainContent from "./MainContent";
-import Container from "@mui/material/Container";
 import AboutMe from "./About/AboutMe";
 import ProjectsDashboard from "./Projects/ProjectsDashboard";
-import Portfolio from "./Portfolio";
+import ContactMe from "./Contact/ContactMe";
 
 function App() {
   return (
-    <div>
-      <Portfolio />
-      {/* <NavBar />
-      <Container
-        maxWidth="lg"
-        component="main"
-        sx={{ display: "flex", flexDirection: "column", my: 16, gap: 4 }}
-      >
-        <AboutMe />
-        <ProjectsDashboard />
-      </Container> */}
+    <div className="position-relative bg-light text-dark min-vh-100">
+      {/* Animated Background */}
+      <motion.div
+        className="position-absolute top-0 start-0 w-100 h-100"
+        style={{
+          zIndex: -1,
+          background:
+            "radial-gradient(circle at 20% 30%, rgba(173, 216, 230, 0.5), transparent 60%)," +
+            "radial-gradient(circle at 80% 40%, rgba(144, 238, 144, 0.5), transparent 60%)," +
+            "radial-gradient(circle at 50% 80%, rgba(255, 255, 153, 0.5), transparent 60%)",
+        }}
+        animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
+        transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+      />
+
+      <NavBar />
+      <AboutMe />
+      <ContactMe />
+      <ProjectsDashboard />
+
+      {/* Footer */}
+      <footer className="text-center py-4 bg-white border-top">
+        <p className="mb-0">
+          © {new Date().getFullYear()} Your Name. All rights reserved.
+        </p>
+      </footer>
     </div>
   );
 }

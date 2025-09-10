@@ -1,12 +1,14 @@
 /** @format */
 
 import { alpha, styled } from "@mui/material/styles";
+import "@fontsource/roboto";
 import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import { JSX } from "react";
+import './NavBar.scss';
 
 // todo move styles into scss files
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
@@ -27,62 +29,59 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 }));
 
 /////////////////////////////// CONSTS /////////////////////////////////////////
-const NAVOFFSET = 128;
 
 /////////////////////////////// METHODS /////////////////////////////////////////
-const scrollToSection = (sectionId: string): void => {
-  const section = document.getElementById(sectionId);
-  if (section) {
-    const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-    window.scrollTo({
-      top: sectionTop - NAVOFFSET,
-      behavior: "smooth",
-    });
-  }
-};
 
 /////////////////////////////// COMPONENT /////////////////////////////////////////
 const NavBar = (): JSX.Element => {
   return (
     <AppBar
-      id="nav-bar"
-      position="fixed"
+      id="navbar"
+      position="sticky"
+      color="default"
       enableColorOnDark
       sx={{
         boxShadow: 0,
-        bgcolor: "transparent",
-        backgroundImage: "none",
-        mt: "calc(var(--template-frame-height, 0px) + 28px)",
+        bgcolor: "white",
       }}
     >
       <Container maxWidth="lg">
-        <StyledToolbar variant="regular" disableGutters>
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: "flex",
-              alignItems: "center",
-              px: 0,
-            }}
+        <Toolbar
+          sx={{
+            display: "flex",
+            justifyContent: "right",
+            alignItems: "center",
+            flexWrap: { xs: "wrap", lg: "nowrap" },
+          }}
+        >
+          <Button
+            variant="text"
+            color="info"
+            size="small"
+            href="#aboutme"
+            className="nav-link d-inline mx-2"
           >
-            <Button
-              variant="text"
-              color="info"
-              size="small"
-              onClick={() => scrollToSection("about-me")}
-            >
-              About Me
-            </Button>
-            <Button
-              variant="text"
-              color="info"
-              size="small"
-              onClick={() => scrollToSection("projects")}
-            >
-              Projects
-            </Button>
-          </Box>
-        </StyledToolbar>
+            About Me
+          </Button>
+          <Button
+            variant="text"
+            color="info"
+            size="small"
+            href="#projects"
+            className="nav-link d-inline mx-2"
+          >
+            Projects
+          </Button>
+          <Button
+            variant="text"
+            color="info"
+            size="small"
+            href="#contact"
+            className="nav-link d-inline mx-2"
+          >
+            Contact
+          </Button>
+        </Toolbar>
       </Container>
     </AppBar>
   );

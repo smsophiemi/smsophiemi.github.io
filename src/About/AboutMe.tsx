@@ -1,31 +1,48 @@
 /** @format */
 
-import downloadFile from "../Common/Download";
-import { JSX } from "react";
+import { motion } from "framer-motion";
+import { Laugh } from "lucide-react";
+import { JSX, useEffect } from "react";
+import React from "react";
+import "./AboutMe.scss";
 
 /////////////////////////////// CONSTS /////////////////////////////////////////
-const resumeURL = "./Resources/FlexProfile - SophieMi.pdf";
-const resumeFileName = "FlexProfile - SophieMi.pdf";
+const profile_pic = "/Resources/profile_pic.jpg";
+const branding_stmt = "/Resources/branding_stmt.txt";
 
 /////////////////////////////// METHODS /////////////////////////////////////////
 
 /////////////////////////////// COMPONENT /////////////////////////////////////////
 const AboutMe = (): JSX.Element => {
+  const [branding_text, setBrandingText] = React.useState("");
+
+  useEffect(() => {
+    fetch(branding_stmt)
+      .then((res) => res.text())
+      .then((text) => setBrandingText(text));
+  }, [branding_stmt]);
+
   return (
-    <div>
-      <section id="about-me">
-        <h2>About Me</h2>
-        <p>
-          Welcome to my online resume! I am a passionate developer with
-          experience in building web applications.
-        </p>
-        <span>adding a image here soon... </span>
-        <button onClick={() => downloadFile(resumeURL, resumeFileName)}>
-          {" "}
-          Download Resume
-        </button>
-      </section>
-    </div>
+    <section id="aboutme" className="container text-center py-5">
+      <motion.img
+        id="profile-pic"
+        src={profile_pic}
+        alt="Profile"
+        className="rounded-circle mb-4 shadow"
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 1 }}
+      />
+      <div className="d-flex justify-content-center align-items-center gap-2">
+        <Laugh />
+        <h1 className="fw-bold">Hi, I'm Sophie</h1>
+        <Laugh />
+      </div>
+      <p className="lead text-secondary">
+        Software Engineer | Santa Clara, CA, 95054
+      </p>
+      <p className="branding-text mx-auto">{branding_text}</p>
+    </section>
   );
 };
 
