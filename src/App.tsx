@@ -4,11 +4,13 @@ import MainContent from "./MainContent";
 import Container from "@mui/material/Container";
 import AboutMe from "./About/AboutMe";
 import ProjectsDashboard from "./Projects/ProjectsDashboard";
+import Portfolio from "./Portfolio";
 
 function App() {
   return (
     <div>
-      <NavBar />
+      <Portfolio />
+      {/* <NavBar />
       <Container
         maxWidth="lg"
         component="main"
@@ -16,7 +18,7 @@ function App() {
       >
         <AboutMe />
         <ProjectsDashboard />
-      </Container>
+      </Container> */}
     </div>
   );
 }
