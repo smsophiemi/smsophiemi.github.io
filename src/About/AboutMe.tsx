@@ -28,7 +28,7 @@ const AboutMe = (): JSX.Element => {
         id="profile-pic"
         src={profile_pic}
         alt="Profile"
-        className="rounded-circle mb-4 shadow"
+        className="profile-img rounded-circle mb-4 shadow"
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1 }}
