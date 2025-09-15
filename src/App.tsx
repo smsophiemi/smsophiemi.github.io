@@ -31,7 +31,7 @@ function App() {
       {/* Footer */}
       <footer className="text-center py-4 bg-white border-top">
         <p className="mb-0">
-          © {new Date().getFullYear()} Your Name. All rights reserved.
+          © {new Date().getFullYear()} Created by Sophie Mi. Made with React.
         </p>
       </footer>
     </div>
