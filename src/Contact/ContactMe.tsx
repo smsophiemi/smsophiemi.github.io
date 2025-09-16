@@ -5,7 +5,7 @@ import { JSX } from "react";
 import downloadFile from "../Common/Download";
 
 /////////////////////////////// CONSTS /////////////////////////////////////////
-const resumeURL = "./Resources/resume-9:9.pdf";
+const resumeURL = "./Resources/resume-9:16.pdf";
 // custom filename for download
 const resumeFileName = "SophieMi-Resume.pdf";
 
@@ -37,15 +37,11 @@ const ContactMe = (): JSX.Element => {
           <Linkedin className="me-2" size={18} /> LinkedIn
         </a>
         <a
-        //   href="/Resources/resume-9:9.pdf"
+          //   href="/Resources/resume-9:9.pdf"
           className="btn btn-warning text-dark"
           onClick={() => downloadFile(resumeURL, resumeFileName)}
         >
-          <FileText
-            className="me-2"
-            size={18}
-            
-          />
+          <FileText className="me-2" size={18} />
           Resume
         </a>
       </div>
